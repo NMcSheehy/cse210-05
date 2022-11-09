@@ -1,8 +1,8 @@
 import pygame
 pygame.init()
 
-class Objects():
-    # Class used for creating players, rocks and gems
+class Object():
+    # Parrent class for creating objects on screen
     def __init__(self, path, width, height, x, y, speed):
         self.path = path
         self.width = width
