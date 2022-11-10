@@ -5,7 +5,7 @@ pygame.init()
 # Import Classes #
 from director import Director
 from window import Window
-from object import Object
+from object import *
 
 ## Classes ##
 '''
@@ -34,7 +34,7 @@ def main():
     # Load all of your classes
 
     # (width, height, name, background color (R,G,B))
-    window = Window(500, 500, 'window', (0,0,0))
+    window = Window(1000, 750, 'Torn Legends! (definetly not Tron)', (0,0,0))
 
     # Parrent class Objects require (image file path, width, height, x, y, speed)
 

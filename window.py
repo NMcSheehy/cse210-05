@@ -22,3 +22,11 @@ class Window():
 
         # Change the screen
         pygame.display.update()
+        
+        
+class Wall():
+    def __init__(self):
+        pass 
+    
+    def crash():
+        pass

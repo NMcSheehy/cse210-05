@@ -31,3 +31,9 @@ class Director():
             # Update window
             window.draw()
         pygame.quit()
+        
+class Rounds():
+    pass
+
+class Game_over():
+    pass
