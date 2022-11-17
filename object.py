@@ -41,13 +41,21 @@ class Player1(Player):
             self.x += 5
         
 class Player1_trail(Player1):
-    pass
+    def __init__(self, path, width, height, x, y, speed):
+        super().__init__(path, width, height, x, y, speed)
+        self.locations = [[self.x, self.y]]
+    
+    def add_location(self, new_x, new_y):
+        self.locations.append([new_x, new_y])
 
 class Player1_particles(Player1):
     pass
 
 class Player1_score(Player1):
-    pass
+    def __init__(self, path, width, height, x, y, speed):
+        super().__init__(path, width, height, x, y, speed)
+        
+    
 
 class Player2(Player):
     def __init__(self, path, width, height, x, y, speed):

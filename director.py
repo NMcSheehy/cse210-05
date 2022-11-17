@@ -15,7 +15,7 @@ class Director():
         # Setup the game clock (FPS)
         self.clock = pygame.time.Clock()
 
-    def start(self, window, player1, player2):
+    def start(self, window, player1, player2, player1_trail, player2_trail):
         # holds game loop aslong as self.playing is True
         while self.playing:
             # Make sure Frame Rate doesn't go over FPS
@@ -31,9 +31,12 @@ class Director():
 
             player1.move()
             player2.move()
+            
+            player1_trail.add_location(player1.x, player1.y) 
+            
 
             # Update window
-            window.draw(player1, player2)
+            window.draw(player1, player2, player1_trail, player2_trail)
         pygame.quit()
         
 class Rounds():

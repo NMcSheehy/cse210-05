@@ -40,12 +40,14 @@ def main():
     # Parent class Objects require (image file path, width, height, x, y, speed)
     player1 = Player1('red_bike_sprite.png', 10, 10, 250, 300, 5)
     player2 = Player2('blue_bike_sprite.png', 10, 10, 750, 500, 5)
+    player1_trail = Player1_trail('red_trail.png', 10, 10, 250, 300, 0)
+    player2_trail = Player2_trail('blue_trail.png', 10, 10, 750, 500, 0)
     
     # (Game FPS)
     game = Director(60)
-
+    
     # Start the game
-    game.start(window, player1, player2)
+    game.start(window, player1, player2, player1_trail, player2_trail)
 
 if __name__ == '__main__':
     main()
