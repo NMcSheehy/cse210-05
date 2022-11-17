@@ -21,11 +21,25 @@ class Object():
         
         
 class Player(Object):
-    pass
+    def __init__(self, path, width, height, x, y, speed):
+        super().__init__(path, width, height, x, y, speed)
+        
 
 class Player1(Player):
-    pass
+    def __init__(self, path, width, height, x, y, speed):
+        super().__init__(path, width, height, x, y, speed)
 
+    def move(self):
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed[pygame.K_w]:
+            self.y -= 5
+        if key_pressed[pygame.K_a]:
+            self.x -= 5
+        if key_pressed[pygame.K_s]:
+            self.y += 5
+        if key_pressed[pygame.K_d]:
+            self.x += 5
+        
 class Player1_trail(Player1):
     pass
 
@@ -36,7 +50,19 @@ class Player1_score(Player1):
     pass
 
 class Player2(Player):
-    pass
+    def __init__(self, path, width, height, x, y, speed):
+        super().__init__(path, width, height, x, y, speed)
+        
+    def move(self):
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed[pygame.K_UP]:
+            self.y -= 5
+        if key_pressed[pygame.K_LEFT]:
+            self.x -= 5
+        if key_pressed[pygame.K_DOWN]:
+            self.y += 5
+        if key_pressed[pygame.K_RIGHT]:
+            self.x += 5
 
 class Player2_trail(Player2):
     pass

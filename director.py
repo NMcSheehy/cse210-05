@@ -1,4 +1,6 @@
 import pygame
+from window import *
+from object import *
 pygame.init()
 
 
@@ -13,7 +15,7 @@ class Director():
         # Setup the game clock (FPS)
         self.clock = pygame.time.Clock()
 
-    def start(self,window):
+    def start(self, window, player1, player2):
         # holds game loop aslong as self.playing is True
         while self.playing:
             # Make sure Frame Rate doesn't go over FPS
@@ -27,9 +29,11 @@ class Director():
                     self.playing = False
             # Store all of the game changes here.
 
+            player1.move()
+            player2.move()
 
             # Update window
-            window.draw()
+            window.draw(player1, player2)
         pygame.quit()
         
 class Rounds():
