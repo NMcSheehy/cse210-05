@@ -21,6 +21,12 @@ class Object():
 class Player(Object):
     def __init__(self, path, width, height, x, y, speed):
         super().__init__(path, width, height, x, y, speed)
+    
+    def move(self, playing):
+        keypressed = pygame.key.get_pressed()
+        if keypressed[pygame.QUIT]:
+            playing = False
+        return playing
         
 class Player1(Player):
     def __init__(self, path, width, height, x, y, speed):

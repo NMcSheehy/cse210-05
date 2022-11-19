@@ -14,12 +14,13 @@ class Director():
         self.crash2 = True
         self.crash3 = True
         self.crash4 = True
+        self.crash5 = True
         self.FPS = FPS
 
         # Setup the game clock (FPS)
         self.clock = pygame.time.Clock()
 
-    def start(self, window, player1, player2, player1_trail, player2_trail):
+    def start(self, window, player1, player2, player1_trail, player2_trail, player):
         # holds game loop aslong as self.playing is True
         while self.playing:
             # Make sure Frame Rate doesn't go over FPS
@@ -43,11 +44,15 @@ class Director():
                 
                 if self.crash4 == False:
                     self.playing = False
+                    
+                if self.crash5 == False:
+                    self.playing = False
             
             # Store all of the game changes here.
 
             player1.move()
             player2.move()
+            self.crash5 = player.move(self.crash5)
             
             
             
