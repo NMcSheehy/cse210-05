@@ -10,6 +10,10 @@ class Director():
     # keeps the game playing
     def __init__(self, FPS) -> None:
         self.playing = True
+        self.crash1 = True
+        self.crash2 = True
+        self.crash3 = True
+        self.crash4 = True
         self.FPS = FPS
 
         # Setup the game clock (FPS)
@@ -27,14 +31,33 @@ class Director():
                 # Event: Quit game
                 if event.type == pygame.QUIT:
                     self.playing = False
+                    
+                if self.crash1 == False:
+                    self.playing = False
+                
+                if self.crash2 == False:
+                    self.playing = False
+                    
+                if self.crash3 == False:
+                    self.playing = False
+                
+                if self.crash4 == False:
+                    self.playing = False
+            
             # Store all of the game changes here.
 
             player1.move()
             player2.move()
             
-            player1_trail.add_location(player1.x, player1.y) 
             
-
+            
+            self.crash1 = player1.crash_wall(player1.x, player1.y, self.crash1)
+            self.crash2 = player2.crash_wall(player2.x, player2.y, self.crash2)
+            self.crash3 = player1.crash_trail(player1.x, player1.y, self.crash3, player1_trail, player2_trail)
+            self.crash4 = player1.crash_trail(player2.x, player2.y, self.crash4, player1_trail, player2_trail)
+            
+            player1_trail.add_location(player1.x, player1.y) 
+            player2_trail.add_location(player2.x, player2.y)
             # Update window
             window.draw(player1, player2, player1_trail, player2_trail)
         pygame.quit()

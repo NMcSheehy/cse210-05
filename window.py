@@ -22,16 +22,15 @@ class Window():
         # Background Color
         self.display.fill(self.background)
         
+        # draw trails    
+        for i in range(len(player1_trail.locations)):
+            self.display.blit(player1_trail.image, (player1_trail.locations[i][0], player1_trail.locations[i][1]))
+        for j in range(len(player2_trail.locations)):
+            self.display.blit(player2_trail.image, (player2_trail.locations[j][0], player2_trail.locations[j][1]))
+        
         # draw players
         self.display.blit(player1.image, (player1.x, player1.y))
         self.display.blit(player2.image, (player2.x, player2.y))
-        
-        # draw trails    
-        for i in range(len(player1_trail.locations)):
-            if i == 0:
-                self.display.blit(player1_trail.image, (player1_trail.locations[i][0], player1_trail.locations[0][1]))
-                self.display.blit(player2_trail.image, (player2_trail.x, player2_trail.y))
-        
         
         # Change the screen
         pygame.display.update()
